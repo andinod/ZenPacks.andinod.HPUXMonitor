@@ -21,7 +21,7 @@ class systemscan(CommandPlugin):
 
     maptype = "DeviceMap"
     compname = ""
-    command = "uname -a && echo __COM__ && /sbin/getconf MACHINE_SERIAL && echo __COM__ && /usr/bin/uptime | /sbin/awk '{print $3, $4}' && echo __COM__ && /usr/bin/model"
+    command = "uname -a && echo __COM__ && /usr/bin/model"
 
     def process(self, device, results, log):
         """Collect command-line information from this device"""
@@ -39,15 +39,9 @@ class systemscan(CommandPlugin):
         log.debug("snmpSysName=%s, setOSProductKey=%s" % (
                 om.snmpSysName, om.setOSProductKey))
 
-	# Second Hardware Serial
-	om.serialNumber = data[1].strip('\n')
-
-	# Third Uptime	
-	om.uptime = data[2].strip('\n,')
-	
-	# Fourth model
-	provider,type,model=data[3].split()[1:]
+	# Second model
+	provider,type,model=data[1].split()[1:]
 	om.setHWProductKey = " ".join([provider,model])
-	log.debug("Hardware Model=%s Serial=%s Uptime=%s"  % (om.setHWProductKey, om.serialNumber, om.uptime))
+	log.debug("Hardware Model=%s"   % (om.setHWProductKey))
 	
         return om

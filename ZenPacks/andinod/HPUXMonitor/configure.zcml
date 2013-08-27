@@ -3,17 +3,6 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:zcml="http://namespaces.zope.org/zcml">
 
-    <adapter
-    	provides=".interfaces.IHPUXDeviceInfo"
-    	for=".HPUXDevice.HPUXDevice"
-    	factory=".info.HPUXDeviceInfo"
-    	/>
-
-
-    <!-- Includes: Browser Configuration -->
-    <include package=".browser"/>
-
-
     <!-- Info Adapters: DataSources
 
     For ZenPacks that add new datasource types you must register their Info

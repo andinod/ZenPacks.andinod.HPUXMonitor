@@ -3,7 +3,7 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.andinod.HPUXMonitor"
-VERSION = "0.1.0"
+VERSION = "0.2.1"
 AUTHOR = "David Andino"
 LICENSE = "GPLv3"
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.andinod']
