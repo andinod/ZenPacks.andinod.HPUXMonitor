@@ -40,7 +40,9 @@ class systemscan(CommandPlugin):
                 om.snmpSysName, om.setOSProductKey))
 
 	# Second model
-	provider,type,model=data[1].split()[1:]
+	provider=data[1].split()[1]
+	type = data[1].split()[2]
+	model = data[1].split()[3]
 	om.setHWProductKey = " ".join([provider,model])
 	log.debug("Hardware Model=%s"   % (om.setHWProductKey))
 	
